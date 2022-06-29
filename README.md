@@ -1,4 +1,4 @@
-# Node Smart Logguer #
+# Node Smart Logger #
 
 ### A library that allows you to keep better control of your daily logs in Node
 <br/>
