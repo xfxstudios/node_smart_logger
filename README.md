@@ -123,3 +123,12 @@ _logger.setTitle({message: "This is a error tittle", level: "error"});
     <li>success</li>
     <li>degub</li>
 </ul>
+
+<br/>
+
+# Express Log Middleware
+```javascript
+_logger.logExpressRequest(req:Request, res:Response, next:NextFunction);
+
+//[2022-5-28 22:5:49] - [info]-[express] | [endpoint] [GET] /process-file/icbc_test |  [headers] {"content-type":"application/json","host":"localhost:3000"} | [params] {"param1":"value1"} | [body] {}
+```

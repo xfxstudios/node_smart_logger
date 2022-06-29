@@ -243,7 +243,7 @@ class SmartLogger {
         return true;
     }
 
-    async setSteepStatus(data:ISteepStatus){
+    async setSteepStatus(data:ISteepStatus){    	
         const {message, number} = data;
         console.log(`${LogForegroundColor.yellow}[ steep ${(number)?number+' ]':']'}\x1b[0m ${message}\n`);
         return true;
@@ -304,6 +304,26 @@ class SmartLogger {
                 return true;
             }
         }
+    }
+
+    async logExpressRequest(req,res,next){
+        
+        const {method, url, headers, body, params} = req;
+
+        let _nDate = this._getDate();
+
+        let _logMessage = `${this._getMsgDate()} - [${LogForegroundColor['cyan']}${Levels['info']}${LogType['reset']}]-[express] | [endpoint] [${method}] ${url} |  [headers] ${JSON.stringify(headers)} | [params] ${JSON.stringify(params)} | [body] ${JSON.stringify(body)}`;
+
+        let _logWriteMessage = `${this._getMsgDate()} - [${Levels['info']}]-[express] | [endpoint] [${method}] ${url} |  [headers] ${JSON.stringify(headers)} | [params] ${JSON.stringify(params)} | [body] ${JSON.stringify(body)}`;
+
+        fs.appendFile(path.resolve(`${this.options.logs_folder_path}/${this.options.logs_folder_name}/${this.options.logs_general_file_name.replace(':date',_nDate)}`), `${_logWriteMessage}\n`, (err:any) => {
+            if (err) throw err;
+        });
+                
+        if(this.options.show_terminal){
+            console.log(`${_logMessage}\n`);
+        }
+        next();
     }
 
 }

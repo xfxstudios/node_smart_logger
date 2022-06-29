@@ -1,6 +1,6 @@
 {
   "name": "node_smart_logger",
-  "version": "1.6.3",
+  "version": "1.7.1",
   "description": "",
   "main": "dist/src/app.js",
   "scripts": {
