@@ -6,6 +6,10 @@
   "scripts": {
     "test": "jest --testTimeout=10000"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xfxstudios/node_smart_logger.git"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
