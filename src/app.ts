@@ -172,6 +172,26 @@ class SmartLogger {
 
     };
 
+    async terminalSuccess(message:String, data={}){
+        
+        let _logMessage = `${this._getMsgDate()} - [${LogForegroundColor['green']}${Levels['success']}${LogType['reset']}] - ${message} | [data]: ${JSON.stringify(data)}`;
+        
+        console.log(`${_logMessage}\n`);
+        
+
+        return true;
+    };
+
+    async terminalCritical(message:String, data={}){
+        
+        let _logMessage = `${this._getMsgDate()} - [${LogForegroundColor['blue']}${Levels['critical']}${LogType['reset']}] - ${message} | [data]: ${JSON.stringify(data)}`;
+        
+        console.log(`${_logMessage}\n`);
+
+        return true;
+
+    };
+
     async setLog(message:String, data={}){
 
         let _logMessage = `${this._getMsgDate()} - ${message} | [data]: ${JSON.stringify(data)}`;

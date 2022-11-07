@@ -39,12 +39,19 @@ Opciones de Configuración:
 ### These logs are saved to a file in your directory
 
 ```javascript
+// normal log
+_logger.setLog("message");
+_logger.terminalLog("message");// only terminal output
+//[2022-5-28 9:21:6] - message | [data]: {}
+
 // Info log
 _logger.setInfo("message");
+_logger.terminalInfo("message");// only terminal output
 //[2022-5-28 9:21:6] - [info] - message | [data]: {}
 
 // Error log
 _logger.setError("message");
+_logger.terminalError("message");// only terminal output
 //[2022-5-28 9:21:6] - [error] - message | [data]: {}
 
 // Alert log
@@ -57,14 +64,17 @@ _logger.setDebug("message");
 
 // Critical log
 _logger.setCritical("message");
+_logger.terminalCritical("message");// only terminal output
 //[2022-5-28 9:21:6] - [critical] - message | [data]: {}
 
 // Warning log
 _logger.setWarning("message");
+_logger.terminalWarning("message");// only terminal output
 //[2022-5-28 9:21:6] - [warning] - message | [data]: {}
 
 // Success log
 _logger.setSuccess("message");
+_logger.terminalSuccess("message");// only terminal output
 //[2022-5-28 9:21:6] - [success] - message | [data]: {}
 
 ```
