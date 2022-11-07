@@ -56,10 +56,12 @@ _logger.terminalError("message");// only terminal output
 
 // Alert log
 _logger.setAlert("message");
+_logger.terminalAlert("message");// only terminal output
 //[2022-5-28 9:21:6] - [alert] - message | [data]: {}
 
 // Debug log
 _logger.setDebug("message");
+_logger.terminalDebug("message");// only terminal output
 //[2022-5-28 9:21:6] - [debug] - message | [data]: {}
 
 // Critical log

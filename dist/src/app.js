@@ -149,6 +149,18 @@ class SmartLogger {
         return true;
     }
     ;
+    async terminalDebug(message, data = {}) {
+        let _logMessage = `${this._getMsgDate()} - [${enums_1.LogForegroundColor['magenta']}${enums_1.Levels['debug']}${enums_1.LogType['reset']}] - ${message} | [data]: ${JSON.stringify(data)}`;
+        console.log(`${_logMessage}\n`);
+        return true;
+    }
+    ;
+    async terminalAlert(message, data = {}) {
+        let _logMessage = `${this._getMsgDate()} - [${enums_1.LogForegroundColor['yellow']}${enums_1.Levels['alert']}${enums_1.LogType['reset']}] - ${message} | [data]: ${JSON.stringify(data)}`;
+        console.log(`${_logMessage}\n`);
+        return true;
+    }
+    ;
     async setLog(message, data = {}) {
         let _logMessage = `${this._getMsgDate()} - ${message} | [data]: ${JSON.stringify(data)}`;
         console.log(`${_logMessage}\n`);
