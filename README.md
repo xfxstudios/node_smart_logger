@@ -25,6 +25,12 @@ const config = {
 }
 const _logger = new SmartLogger(config);
 ```
+Opciones de Configuración:
+
+- logs_folder_path : String - [Ruta donde se generará el archivo de logs] [defaul: "./"]
+- logs_folder_name : String - [Nombre del directorio donde se guardaran los logs] [default: "logs"]
+- show_terminal : Boolean - [Habilita o inhabilita mostrar logs en el terminal] [default: "true"]
+- write_file : Boolean - [Habilita o inhabilita escribir los logs en el archivo] [default: "true"]
 
 <br/>
 
