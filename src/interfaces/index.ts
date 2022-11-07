@@ -17,6 +17,7 @@ export interface IOptions {
     debug_level: String;
     general_level: String;
     show_terminal: Boolean;
+    write_file: Boolean;
 }
 
 export interface ISteep {

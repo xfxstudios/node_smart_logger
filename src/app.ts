@@ -7,7 +7,7 @@ const cliProgress = require('cli-progress');
 
 class SmartLogger {
     
-    private options:IOptions;
+    private options                         : IOptions;
     private readonly logs_folder_path       = "./";
     private readonly logs_folder_name       = "logs";
     private readonly create_general_file    = false;
@@ -26,6 +26,7 @@ class SmartLogger {
     private readonly debug_level            = "debug";
     private readonly general_level          = "general";
     private readonly show_terminal          = true;
+    private readonly write_file             = true;
 
     constructor(optionsParams={}) {
         this.options = this._optionsInit(optionsParams)
@@ -51,6 +52,7 @@ class SmartLogger {
             debug_level: this.debug_level,
             general_level: this.general_level,
             show_terminal: this.show_terminal,
+            write_file: this.write_file,
 
         };
 
@@ -132,13 +134,49 @@ class SmartLogger {
         });
     };
 
+    async terminalLog(message:String, data={}){
+
+        let _logMessage = `${this._getMsgDate()} - ${message} | [data]: ${JSON.stringify(data)}`;
+        
+        console.log(`${_logMessage}\n`);
+
+        return true;
+    };
+
+    async terminalInfo(message:String, data={}){
+
+        let _logMessage = `${this._getMsgDate()} - [${LogForegroundColor['cyan']}${Levels['info']}${LogType['reset']}] - ${message} | [data]: ${JSON.stringify(data)}`;
+
+        console.log(`${_logMessage}\n`);
+        
+
+        return true;
+    };
+
+    async terminalError(message:String, data={}){
+
+        let _logMessage = `${this._getMsgDate()} - [${LogForegroundColor['red']}${Levels['error']}${LogType['reset']}] - ${message} | [data]: ${JSON.stringify(data)}`;
+
+        console.log(`${_logMessage}\n`);
+
+        return true;
+    };
+
+    async terminalWarning(message:String, data={}){
+        
+        let _logMessage = `${this._getMsgDate()} - [${LogForegroundColor['orange']}${Levels['warning']}${LogType['reset']}] - ${message} | [data]: ${JSON.stringify(data)}`;
+        
+        console.log(`${_logMessage}\n`);
+        
+        return true;
+
+    };
+
     async setLog(message:String, data={}){
 
         let _logMessage = `${this._getMsgDate()} - ${message} | [data]: ${JSON.stringify(data)}`;
         
-        if(this.options.show_terminal){
-            console.log(`${_logMessage}\n`);
-        }
+        console.log(`${_logMessage}\n`);
 
         return true;
     };
@@ -147,7 +185,9 @@ class SmartLogger {
 
         let _logMessage = `${this._getMsgDate()} - [${LogForegroundColor['cyan']}${Levels['info']}${LogType['reset']}] - ${message} | [data]: ${JSON.stringify(data)}`;
 
-        await this._writeFile(message, 'info', data);
+        if(this.options.write_file){
+            await this._writeFile(message, 'info', data);
+        }
         
         if(this.options.show_terminal){
             console.log(`${_logMessage}\n`);
@@ -160,7 +200,9 @@ class SmartLogger {
 
         let _logMessage = `${this._getMsgDate()} - [${LogForegroundColor['red']}${Levels['error']}${LogType['reset']}] - ${message} | [data]: ${JSON.stringify(data)}`;
 
-        await this._writeFile(message, 'error', data);
+        if(this.options.write_file){
+            await this._writeFile(message, 'error', data);
+        }
                 
         if(this.options.show_terminal){
             console.log(`${_logMessage}\n`);
@@ -173,7 +215,9 @@ class SmartLogger {
         
         let _logMessage = `${this._getMsgDate()} - [${LogForegroundColor['orange']}${Levels['warning']}${LogType['reset']}] - ${message} | [data]: ${JSON.stringify(data)}`;
         
-        await this._writeFile(message, 'warning', data);
+        if(this.options.write_file){
+            await this._writeFile(message, 'warning', data);
+        }
                 
         if(this.options.show_terminal){
             console.log(`${_logMessage}\n`);
@@ -187,7 +231,9 @@ class SmartLogger {
         
         let _logMessage = `${this._getMsgDate()} - [${LogForegroundColor['magenta']}${Levels['debug']}${LogType['reset']}] - ${message} | [data]: ${JSON.stringify(data)}`;
         
-        await this._writeFile(message, 'debug', data);
+        if(this.options.write_file){
+            await this._writeFile(message, 'debug', data);
+        }
                 
         if(this.options.show_terminal){
             console.log(`${_logMessage}\n`);
@@ -201,7 +247,9 @@ class SmartLogger {
         
         let _logMessage = `${this._getMsgDate()} - [${LogForegroundColor['yellow']}${Levels['alert']}${LogType['reset']}] - ${message} | [data]: ${JSON.stringify(data)}`;
         
-        await this._writeFile(message, 'alert', data);
+        if(this.options.write_file){
+            await this._writeFile(message, 'alert', data);
+        }
                 
         if(this.options.show_terminal){
             console.log(`${_logMessage}\n`);
@@ -214,7 +262,9 @@ class SmartLogger {
         
         let _logMessage = `${this._getMsgDate()} - [${LogForegroundColor['green']}${Levels['success']}${LogType['reset']}] - ${message} | [data]: ${JSON.stringify(data)}`;
         
-        await this._writeFile(message, 'alert', data);
+        if(this.options.write_file){
+            await this._writeFile(message, 'alert', data);
+        }
                 
         if(this.options.show_terminal){
             console.log(`${_logMessage}\n`);
@@ -227,7 +277,9 @@ class SmartLogger {
         
         let _logMessage = `${this._getMsgDate()} - [${LogForegroundColor['blue']}${Levels['critical']}${LogType['reset']}] - ${message} | [data]: ${JSON.stringify(data)}`;
         
-        await this._writeFile(message, 'critical', data);
+        if(this.options.write_file){
+            await this._writeFile(message, 'critical', data);
+        }
                 
         if(this.options.show_terminal){
             console.log(`${_logMessage}\n`);
