@@ -11,7 +11,7 @@ npm i node_smart_logger
 
 ## Start it
 ```javascript
-import SmartLogger from 'node_smart_logger';
+import { SmartLogger } from 'node_smart_logger';
 
 const _logger = new SmartLogger();
 
@@ -146,7 +146,9 @@ _logger.setTitle({message: "This is a error tittle", level: "error"});
 
 # Express Log Middleware
 ```javascript
-_logger.logExpressRequest(req:Request, res:Response, next:NextFunction);
+import { logExpressRequest } from 'node_smart_logger'
+
+router.get('/', logExpressRequest, (req,res) => {})
 
 //[2022-5-28 22:5:49] - [info]-[express] | [endpoint] [GET] /process-file/icbc_test |  [headers] {"content-type":"application/json","host":"localhost:3000"} | [params] {"param1":"value1"} | [body] {}
 ```

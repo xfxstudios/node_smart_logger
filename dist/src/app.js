@@ -3,9 +3,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.logExpressRequest = exports.SmartLogger = void 0;
 const fs = require('fs');
 const path_1 = __importDefault(require("path"));
 const enums_1 = require("./enums");
+const expressMiddleware_1 = require("./services/expressMiddleware");
+Object.defineProperty(exports, "logExpressRequest", { enumerable: true, get: function () { return expressMiddleware_1.logExpressRequest; } });
 const cliProgress = require('cli-progress');
 class SmartLogger {
     constructor(optionsParams = {}) {
@@ -307,4 +310,4 @@ class SmartLogger {
         };
     }
 }
-exports.default = SmartLogger;
+exports.SmartLogger = SmartLogger;

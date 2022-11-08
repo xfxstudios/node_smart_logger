@@ -3,6 +3,7 @@ const fs = require('fs');
 import path from 'path';
 import {Levels, LogBackgroundColor, LogForegroundColor, LogType} from './enums';
 import {ICantity, IInterval, IOptions, ISteep, ISteepStatus, ITitle} from './interfaces';
+import {logExpressRequest} from './services/expressMiddleware';
 const cliProgress = require('cli-progress');
 
 class SmartLogger {
@@ -399,4 +400,7 @@ class SmartLogger {
 
 }
 
-export default SmartLogger;
+export {
+    SmartLogger,
+    logExpressRequest
+};

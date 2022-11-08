@@ -1,4 +1,4 @@
-import SmartLogger from "../../../src/app";
+import {SmartLogger} from "../../../src/app";
 import {customOptionsStubs, prevOptionsStubs} from "../stubs/config.stubs";
 
 const app = new SmartLogger();
