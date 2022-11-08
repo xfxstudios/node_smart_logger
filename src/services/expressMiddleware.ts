@@ -8,7 +8,7 @@ export const logExpressRequest = (req,res,next) => {
   
   const {method, url, headers, body, params} = req;
 
-  let _data = {endpoint:`[${method}] ${url}`, headers:JSON.stringify(headers), url_params:JSON.stringify(params), body:JSON.stringify(body)}
+  let _data = {endpoint:`[${method}] ${url}`, headers:headers, url_params:params, body:body}
 
   let _logMessage = `${_msgDate} - [${LogForegroundColor['cyan']}${Levels['info']}${LogType['reset']}] - [express] | [data]: ${JSON.stringify(_data)}`;
           
