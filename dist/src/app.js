@@ -306,19 +306,5 @@ class SmartLogger {
             }
         };
     }
-    async logExpressRequest(req, res, next) {
-        let _msgDate = new Date();
-        _msgDate = `[${_msgDate.getFullYear()}-${_msgDate.getMonth()}-${_msgDate.getDate()} ${_msgDate.getHours()}:${_msgDate.getMinutes()}:${_msgDate.getSeconds()}]`;
-        const { method, url, headers, body, params } = req;
-        let _data = { endpoint: `[${method}] ${url}`, headers: JSON.stringify(headers), url_params: JSON.stringify(params), body: JSON.stringify(body) };
-        let _logMessage = `${_msgDate} - [${enums_1.LogForegroundColor['cyan']}${enums_1.Levels['info']}${enums_1.LogType['reset']}] - [express] | [data]: ${JSON.stringify(_data)}`;
-        if (this.options.write_file) {
-            await this._writeFile(_logMessage, 'info', _data);
-        }
-        if (this.options.show_terminal) {
-            console.log(`${_logMessage}\n`);
-        }
-        next();
-    }
 }
 exports.default = SmartLogger;
