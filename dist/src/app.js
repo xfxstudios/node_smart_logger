@@ -173,7 +173,7 @@ class SmartLogger {
     async setInfo(message, data = {}) {
         let _logMessage = `${this._getMsgDate()} - [${enums_1.LogForegroundColor['cyan']}${enums_1.Levels['info']}${enums_1.LogType['reset']}] - ${message} | [data]: ${JSON.stringify(data)}`;
         if (this.options.write_file) {
-            await this._writeFile(message, 'info', data);
+            await this._writeFile(message, enums_1.Levels['info'], data);
         }
         if (this.options.show_terminal) {
             console.log(`${_logMessage}\n`);
@@ -184,7 +184,7 @@ class SmartLogger {
     async setError(message, data = {}) {
         let _logMessage = `${this._getMsgDate()} - [${enums_1.LogForegroundColor['red']}${enums_1.Levels['error']}${enums_1.LogType['reset']}] - ${message} | [data]: ${JSON.stringify(data)}`;
         if (this.options.write_file) {
-            await this._writeFile(message, 'error', data);
+            await this._writeFile(message, enums_1.Levels['error'], data);
         }
         if (this.options.show_terminal) {
             console.log(`${_logMessage}\n`);
@@ -195,7 +195,7 @@ class SmartLogger {
     async setWarning(message, data = {}) {
         let _logMessage = `${this._getMsgDate()} - [${enums_1.LogForegroundColor['orange']}${enums_1.Levels['warning']}${enums_1.LogType['reset']}] - ${message} | [data]: ${JSON.stringify(data)}`;
         if (this.options.write_file) {
-            await this._writeFile(message, 'warning', data);
+            await this._writeFile(message, enums_1.Levels['warning'], data);
         }
         if (this.options.show_terminal) {
             console.log(`${_logMessage}\n`);
@@ -206,7 +206,7 @@ class SmartLogger {
     async setDebug(message, data = {}) {
         let _logMessage = `${this._getMsgDate()} - [${enums_1.LogForegroundColor['magenta']}${enums_1.Levels['debug']}${enums_1.LogType['reset']}] - ${message} | [data]: ${JSON.stringify(data)}`;
         if (this.options.write_file) {
-            await this._writeFile(message, 'debug', data);
+            await this._writeFile(message, enums_1.Levels['debug'], data);
         }
         if (this.options.show_terminal) {
             console.log(`${_logMessage}\n`);
@@ -217,7 +217,7 @@ class SmartLogger {
     async setAlert(message, data = {}) {
         let _logMessage = `${this._getMsgDate()} - [${enums_1.LogForegroundColor['yellow']}${enums_1.Levels['alert']}${enums_1.LogType['reset']}] - ${message} | [data]: ${JSON.stringify(data)}`;
         if (this.options.write_file) {
-            await this._writeFile(message, 'alert', data);
+            await this._writeFile(message, enums_1.Levels['alert'], data);
         }
         if (this.options.show_terminal) {
             console.log(`${_logMessage}\n`);
@@ -228,7 +228,7 @@ class SmartLogger {
     async setSuccess(message, data = {}) {
         let _logMessage = `${this._getMsgDate()} - [${enums_1.LogForegroundColor['green']}${enums_1.Levels['success']}${enums_1.LogType['reset']}] - ${message} | [data]: ${JSON.stringify(data)}`;
         if (this.options.write_file) {
-            await this._writeFile(message, 'alert', data);
+            await this._writeFile(message, enums_1.Levels['success'], data);
         }
         if (this.options.show_terminal) {
             console.log(`${_logMessage}\n`);
@@ -239,7 +239,7 @@ class SmartLogger {
     async setCritical(message, data = {}) {
         let _logMessage = `${this._getMsgDate()} - [${enums_1.LogForegroundColor['blue']}${enums_1.Levels['critical']}${enums_1.LogType['reset']}] - ${message} | [data]: ${JSON.stringify(data)}`;
         if (this.options.write_file) {
-            await this._writeFile(message, 'critical', data);
+            await this._writeFile(message, enums_1.Levels['critical'], data);
         }
         if (this.options.show_terminal) {
             console.log(`${_logMessage}\n`);

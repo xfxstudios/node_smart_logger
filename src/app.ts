@@ -226,7 +226,7 @@ class SmartLogger {
         let _logMessage = `${this._getMsgDate()} - [${LogForegroundColor['cyan']}${Levels['info']}${LogType['reset']}] - ${message} | [data]: ${JSON.stringify(data)}`;
 
         if(this.options.write_file){
-            await this._writeFile(message, 'info', data);
+            await this._writeFile(message, Levels['info'], data);
         }
         
         if(this.options.show_terminal){
@@ -241,7 +241,7 @@ class SmartLogger {
         let _logMessage = `${this._getMsgDate()} - [${LogForegroundColor['red']}${Levels['error']}${LogType['reset']}] - ${message} | [data]: ${JSON.stringify(data)}`;
 
         if(this.options.write_file){
-            await this._writeFile(message, 'error', data);
+            await this._writeFile(message, Levels['error'], data);
         }
                 
         if(this.options.show_terminal){
@@ -256,7 +256,7 @@ class SmartLogger {
         let _logMessage = `${this._getMsgDate()} - [${LogForegroundColor['orange']}${Levels['warning']}${LogType['reset']}] - ${message} | [data]: ${JSON.stringify(data)}`;
         
         if(this.options.write_file){
-            await this._writeFile(message, 'warning', data);
+            await this._writeFile(message, Levels['warning'], data);
         }
                 
         if(this.options.show_terminal){
@@ -272,7 +272,7 @@ class SmartLogger {
         let _logMessage = `${this._getMsgDate()} - [${LogForegroundColor['magenta']}${Levels['debug']}${LogType['reset']}] - ${message} | [data]: ${JSON.stringify(data)}`;
         
         if(this.options.write_file){
-            await this._writeFile(message, 'debug', data);
+            await this._writeFile(message, Levels['debug'], data);
         }
                 
         if(this.options.show_terminal){
@@ -288,7 +288,7 @@ class SmartLogger {
         let _logMessage = `${this._getMsgDate()} - [${LogForegroundColor['yellow']}${Levels['alert']}${LogType['reset']}] - ${message} | [data]: ${JSON.stringify(data)}`;
         
         if(this.options.write_file){
-            await this._writeFile(message, 'alert', data);
+            await this._writeFile(message, Levels['alert'], data);
         }
                 
         if(this.options.show_terminal){
@@ -303,7 +303,7 @@ class SmartLogger {
         let _logMessage = `${this._getMsgDate()} - [${LogForegroundColor['green']}${Levels['success']}${LogType['reset']}] - ${message} | [data]: ${JSON.stringify(data)}`;
         
         if(this.options.write_file){
-            await this._writeFile(message, 'alert', data);
+            await this._writeFile(message, Levels['success'], data);
         }
                 
         if(this.options.show_terminal){
@@ -318,7 +318,7 @@ class SmartLogger {
         let _logMessage = `${this._getMsgDate()} - [${LogForegroundColor['blue']}${Levels['critical']}${LogType['reset']}] - ${message} | [data]: ${JSON.stringify(data)}`;
         
         if(this.options.write_file){
-            await this._writeFile(message, 'critical', data);
+            await this._writeFile(message, Levels['critical'], data);
         }
                 
         if(this.options.show_terminal){
