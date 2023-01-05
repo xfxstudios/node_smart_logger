@@ -195,7 +195,7 @@ class SmartLogger {
 
     async terminalDebug(message:String, data={}){
         
-        let _logMessage = `${this._getMsgDate()} - [${LogForegroundColor['magenta']}${Levels['debug']}${LogType['reset']}] - ${message} | [data]: ${JSON.stringify(data)}`;
+        let _logMessage = `${this._getMsgDate()} - [${LogForegroundColor['yellow']}${Levels['debug']}${LogType['reset']}] - ${message} | [data]: ${JSON.stringify(data)}`;
         
         console.log(`${_logMessage}\n`);
 

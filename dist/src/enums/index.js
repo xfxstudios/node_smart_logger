@@ -39,11 +39,11 @@ var LogBackgroundColor;
 })(LogBackgroundColor = exports.LogBackgroundColor || (exports.LogBackgroundColor = {}));
 var Levels;
 (function (Levels) {
-    Levels["info"] = "info";
-    Levels["error"] = "error";
-    Levels["warning"] = "warning";
-    Levels["debug"] = "debug";
-    Levels["alert"] = "alert";
-    Levels["critical"] = "critical";
-    Levels["success"] = "success";
+    Levels["info"] = "INFO";
+    Levels["error"] = "ERROR";
+    Levels["warning"] = "WARNING";
+    Levels["debug"] = "DEBUG";
+    Levels["alert"] = "ALERT";
+    Levels["critical"] = "CRITICAL";
+    Levels["success"] = "SUCCESS";
 })(Levels = exports.Levels || (exports.Levels = {}));

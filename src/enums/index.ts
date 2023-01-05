@@ -36,11 +36,11 @@ export enum LogBackgroundColor {
 }
 
 export enum Levels {
-    info = "info",
-    error = "error",
-    warning = "warning",
-    debug = "debug",
-    alert = "alert",
-    critical = "critical",
-    success = "success",
+    info = "INFO",
+    error = "ERROR",
+    warning = "WARNING",
+    debug = "DEBUG",
+    alert = "ALERT",
+    critical = "CRITICAL",
+    success = "SUCCESS",
 }
