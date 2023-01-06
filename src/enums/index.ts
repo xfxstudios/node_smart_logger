@@ -43,4 +43,5 @@ export enum Levels {
     alert = "ALERT",
     critical = "CRITICAL",
     success = "SUCCESS",
+    trace = "TRACE",
 }

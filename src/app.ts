@@ -212,6 +212,15 @@ class SmartLogger {
         return true;
     };
 
+    async terminalTrace(message:String='', data={}){
+        
+        let _logMessage = `${this._getMsgDate()} - [${LogForegroundColor['magenta']}${Levels['trace']}${LogType['reset']}] - ${message} | [data]: ${JSON.stringify(data)}`;
+        
+        console.trace(`${_logMessage}\n`);
+
+        return true;
+    };
+
     async setLog(message:String, data={}){
 
         let _logMessage = `${this._getMsgDate()} - ${message} | [data]: ${JSON.stringify(data)}`;
@@ -323,6 +332,22 @@ class SmartLogger {
                 
         if(this.options.show_terminal){
             console.log(`${_logMessage}\n`);
+        }
+
+        return true;
+
+    };
+
+    async setTrace(message:String='', data={}){
+        
+        let _logMessage = `${this._getMsgDate()} - [${LogForegroundColor['magenta']}${Levels['trace']}${LogType['reset']}] - ${message} | [data]: ${JSON.stringify(data)}`;
+        
+        if(this.options.write_file){
+            await this._writeFile(message, Levels['trace'], data);
+        }
+                
+        if(this.options.show_terminal){
+            console.trace(`${_logMessage}\n`);
         }
 
         return true;

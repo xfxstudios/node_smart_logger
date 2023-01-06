@@ -46,4 +46,5 @@ var Levels;
     Levels["alert"] = "ALERT";
     Levels["critical"] = "CRITICAL";
     Levels["success"] = "SUCCESS";
+    Levels["trace"] = "TRACE";
 })(Levels = exports.Levels || (exports.Levels = {}));
