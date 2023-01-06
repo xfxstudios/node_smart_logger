@@ -47,37 +47,47 @@ _logger.terminalLog("message");// only terminal output
 // Info log
 _logger.setInfo("message");
 _logger.terminalInfo("message");// only terminal output
-//[2022-5-28 9:21:6] - [info] - message | [data]: {}
+//[2022-5-28 9:21:6] - [INFO] - message | [data]: {}
 
 // Error log
 _logger.setError("message");
 _logger.terminalError("message");// only terminal output
-//[2022-5-28 9:21:6] - [error] - message | [data]: {}
+//[2022-5-28 9:21:6] - [ERROR] - message | [data]: {}
 
 // Alert log
 _logger.setAlert("message");
 _logger.terminalAlert("message");// only terminal output
-//[2022-5-28 9:21:6] - [alert] - message | [data]: {}
+//[2022-5-28 9:21:6] - [ALERT] - message | [data]: {}
 
 // Debug log
 _logger.setDebug("message");
 _logger.terminalDebug("message");// only terminal output
-//[2022-5-28 9:21:6] - [debug] - message | [data]: {}
+//[2022-5-28 9:21:6] - [DEBUG] - message | [data]: {}
 
 // Critical log
 _logger.setCritical("message");
 _logger.terminalCritical("message");// only terminal output
-//[2022-5-28 9:21:6] - [critical] - message | [data]: {}
+//[2022-5-28 9:21:6] - [CRITICAL] - message | [data]: {}
 
 // Warning log
 _logger.setWarning("message");
 _logger.terminalWarning("message");// only terminal output
-//[2022-5-28 9:21:6] - [warning] - message | [data]: {}
+//[2022-5-28 9:21:6] - [WARNING] - message | [data]: {}
 
 // Success log
 _logger.setSuccess("message");
 _logger.terminalSuccess("message");// only terminal output
-//[2022-5-28 9:21:6] - [success] - message | [data]: {}
+//[2022-5-28 9:21:6] - [SUCCESS] - message | [data]: {}
+
+// Trace log [return a trace of route]
+_logger.setTrace("message");
+_logger.terminalTrace("message");// only terminal output
+//[2022-5-28 9:21:6] - [TRACE] - message | [data]: {}
+/*
+    myOtherFUnction
+    myFunction
+    onclick
+*/
 
 ```
 <br/>
