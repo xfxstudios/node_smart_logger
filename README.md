@@ -34,6 +34,11 @@ Opciones de Configuración:
 
 <br/>
 
+### Disable logs for terminal during test, set environment variable
+```
+SET TEST_LOGS=false
+```
+
 # logs
 
 ### These logs are saved to a file in your directory
