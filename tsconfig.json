@@ -8,9 +8,13 @@
     "module": "commonjs",
     "outDir": "./dist",
     "esModuleInterop": true,
+    "declaration":true,
 
     /* Experimental Options */
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true
-  }
+  },
+  "exclude": [
+    "test/**/*.ts"
+  ]
 }
