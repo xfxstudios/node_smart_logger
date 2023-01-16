@@ -35,7 +35,7 @@ class SmartLogger {
         this.options = this._optionsInit(optionsParams);
     } //
     _optionsInit(options) {
-        var _a;
+        var _a, _b;
         let _prevOptions = {
             logs_folder_path: this.logs_folder_path,
             logs_folder_name: this.logs_folder_name,
@@ -66,6 +66,7 @@ class SmartLogger {
             return _prevOptions;
         }
         else {
+            _prevOptions['test_logs'] = (_b = process.env.TEST_LOGS) !== null && _b !== void 0 ? _b : true;
             return _prevOptions;
         }
     } //
