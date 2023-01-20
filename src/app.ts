@@ -1,10 +1,104 @@
 
 const fs = require('fs');
 import path from 'path';
-import {Levels, LogBackgroundColor, LogForegroundColor, LogType} from './enums';
-import {ICantity, IInterval, IOptions, ISteep, ISteepStatus, ITitle} from './interfaces';
-import {logExpressRequest} from './services/expressMiddleware';
 const cliProgress = require('cli-progress');
+
+interface IOptions {
+    logs_folder_path: String;
+    logs_folder_name: String;
+    create_general_file: Boolean;
+    create_info_file: Boolean;
+    create_error_file: Boolean;
+    create_warning_file: Boolean;
+    create_debug_file: Boolean;
+    logs_general_file_name: String;
+    logs_info_file_name: String;
+    logs_error_file_name: String;
+    logs_warning_file_name: String;
+    logs_debug_file_name: String;
+    error_level: String;
+    warning_level: String;
+    info_level: String;
+    debug_level: String;
+    general_level: String;
+    show_terminal: Boolean;
+    write_file: Boolean;
+}
+
+interface ISteep {
+    message: String;
+    number?: Number;
+}
+
+interface ISteepStatus {
+    message: String;
+    number?: Number;
+    status?: String;
+}
+
+interface ICantity {
+    message: String;
+    total: Number;
+}
+
+interface IInterval {
+    message: String;
+    actual: Number;
+    total: Number;
+}
+
+interface ITitle {
+    message: String;
+    level?: String;
+}
+
+enum LogType {
+    reset      = "\x1b[0m",
+    bright     = "\x1b[1m",
+    dim        = "\x1b[2m",
+    underscore = "\x1b[4m",
+    blink      = "\x1b[5m",
+    reverse    = "\x1b[7m",
+    hidden     = "\x1b[8m",
+}
+
+enum LogForegroundColor {
+    black   = "\x1b[30m",
+    red     = "\x1b[31m",
+    green   = "\x1b[32m",
+    yellow  = "\x1b[33m",
+    blue    = "\x1b[34m",
+    magenta = "\x1b[35m",
+    cyan    = "\x1b[36m",
+    white   = "\x1b[37m",
+    crimson = "\x1b[38m",
+    orange  = "\x1b[38;5;214m",
+
+}
+
+enum LogBackgroundColor {
+    black   = "\x1b[40m",
+    red     = "\x1b[41m",
+    green   = "\x1b[42m",
+    yellow  = "\x1b[43m",
+    blue    = "\x1b[44m",
+    magenta = "\x1b[45m",
+    cyan    = "\x1b[46m",
+    white   = "\x1b[47m",
+    crimson = "\x1b[48m",
+    orange  = "\x1b[48;5;214m",
+}
+
+enum Levels {
+    info = "INFO",
+    error = "ERROR",
+    warning = "WARNING",
+    debug = "DEBUG",
+    alert = "ALERT",
+    critical = "CRITICAL",
+    success = "SUCCESS",
+    trace = "TRACE",
+}
 
 class SmartLogger {
     
@@ -458,7 +552,4 @@ class SmartLogger {
 
 }
 
-export {
-    SmartLogger,
-    logExpressRequest
-};
+export {SmartLogger};

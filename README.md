@@ -158,12 +158,3 @@ _logger.setTitle({message: "This is a error tittle", level: "error"});
 </ul>
 
 <br/>
-
-# Express Log Middleware
-```javascript
-import { logExpressRequest } from 'node_smart_logger'
-
-router.get('/', logExpressRequest, (req,res) => {})
-
-//[2022-5-28 22:5:49] - [info]-[express] | [endpoint] [GET] /process-file/icbc_test |  [headers] {"content-type":"application/json","host":"localhost:3000"} | [params] {"param1":"value1"} | [body] {}
-```

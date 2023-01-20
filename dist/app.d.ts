@@ -1,5 +1,25 @@
-import { ICantity, IInterval, ISteep, ISteepStatus, ITitle } from './interfaces';
-import { logExpressRequest } from './services/expressMiddleware';
+interface ISteep {
+    message: String;
+    number?: Number;
+}
+interface ISteepStatus {
+    message: String;
+    number?: Number;
+    status?: String;
+}
+interface ICantity {
+    message: String;
+    total: Number;
+}
+interface IInterval {
+    message: String;
+    actual: Number;
+    total: Number;
+}
+interface ITitle {
+    message: String;
+    level?: String;
+}
 declare class SmartLogger {
     private options;
     private readonly logs_folder_path;
@@ -57,4 +77,4 @@ declare class SmartLogger {
         stop: () => boolean;
     }>;
 }
-export { SmartLogger, logExpressRequest };
+export { SmartLogger };

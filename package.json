@@ -1,11 +1,15 @@
 {
   "name": "node_smart_logger",
-  "version": "3.8.1",
+  "version": "3.9.0",
   "description": "",
-  "main": "dist/src/app.js",
+  "main": "dist/app.js",
+  "types":"dist/app.d.ts",
   "scripts": {
     "test": "jest --testTimeout=10000"
   },
+  "files":[
+    "/dist"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/xfxstudios/node_smart_logger.git"
