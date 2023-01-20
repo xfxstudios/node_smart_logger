@@ -1,9 +1,8 @@
 {
   "name": "node_smart_logger",
-  "version": "3.8.0",
+  "version": "3.8.1",
   "description": "",
   "main": "dist/src/app.js",
-  "types": "dist/src/app.d.js",
   "scripts": {
     "test": "jest --testTimeout=10000"
   },
