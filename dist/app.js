@@ -75,7 +75,6 @@ class SmartLogger {
         this.general_level = "general";
         this.show_terminal = true;
         this.write_file = true;
-        this.test_logs = true;
         this.options = this._optionsInit(optionsParams);
     } //
     _optionsInit(options) {

@@ -122,7 +122,7 @@ class SmartLogger {
     private readonly general_level          = "general";
     private readonly show_terminal          = true;
     private readonly write_file             = true;
-    private readonly test_logs              = true;
+    private readonly test_logs;
 
     constructor(optionsParams={}) {
         this.options = this._optionsInit(optionsParams)
