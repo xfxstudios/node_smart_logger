@@ -43,17 +43,16 @@ var LogBackgroundColor;
     LogBackgroundColor["crimson"] = "\u001B[48m";
     LogBackgroundColor["orange"] = "\u001B[48;5;214m";
 })(LogBackgroundColor || (LogBackgroundColor = {}));
-var Levels;
-(function (Levels) {
-    Levels["info"] = "INFO";
-    Levels["error"] = "ERROR";
-    Levels["warning"] = "WARNING";
-    Levels["debug"] = "DEBUG";
-    Levels["alert"] = "ALERT";
-    Levels["critical"] = "CRITICAL";
-    Levels["success"] = "SUCCESS";
-    Levels["trace"] = "TRACE";
-})(Levels || (Levels = {}));
+const Levels = {
+    info: "INFO",
+    error: "ERROR",
+    warning: "WARNING",
+    debug: "DEBUG",
+    alert: "ALERT",
+    critical: "CRITICAL",
+    success: "SUCCESS",
+    trace: "TRACE"
+};
 class SmartLogger {
     constructor(optionsParams = {}) {
         this.logs_folder_path = "./";
@@ -154,10 +153,11 @@ class SmartLogger {
         }
         return out;
     }
-    async _writeFile(message, level, data = {}) {
+    async _writeFile({ message, level, data }) {
         await this._createFile();
         let _nDate = this._getDate();
-        let _logMessage = `${this._getMsgDate()} - ${this.getSpaces(`[${Levels[level]}]`)}- ${message} | [data]: ${JSON.stringify(data)}`;
+        let _data = (Object.keys(data).length > 0) ? `| [data]: ${JSON.stringify(data)}` : ``;
+        let _logMessage = `${this._getMsgDate()} - ${this.getSpaces(`[${level}]`)}- ${message} ${_data}`;
         fs.appendFile(path_1.default.resolve(`${this.options.logs_folder_path}/${this.options.logs_folder_name}/${this.options.logs_general_file_name.replace(':date', _nDate)}`), `${_logMessage}\n`, (err) => {
             if (err)
                 throw err;
@@ -237,7 +237,7 @@ class SmartLogger {
     async setInfo(message, data = {}) {
         let _logMessage = `${this._getMsgDate()} - [${LogForegroundColor['cyan']}${Levels['info']}${LogType['reset']}] - ${message} | [data]: ${JSON.stringify(data)}`;
         if (this.options.write_file) {
-            await this._writeFile(message, Levels['info'], data);
+            await this._writeFile({ message, level: Levels['info'], data });
         }
         if (this.options.show_terminal) {
             if (this.test_logs)
@@ -249,7 +249,7 @@ class SmartLogger {
     async setError(message, data = {}) {
         let _logMessage = `${this._getMsgDate()} - [${LogForegroundColor['red']}${Levels['error']}${LogType['reset']}] - ${message} | [data]: ${JSON.stringify(data)}`;
         if (this.options.write_file) {
-            await this._writeFile(message, Levels['error'], data);
+            await this._writeFile({ message, level: Levels['error'], data });
         }
         if (this.options.show_terminal) {
             if (this.test_logs)
@@ -261,7 +261,7 @@ class SmartLogger {
     async setWarning(message, data = {}) {
         let _logMessage = `${this._getMsgDate()} - [${LogForegroundColor['orange']}${Levels['warning']}${LogType['reset']}] - ${message} | [data]: ${JSON.stringify(data)}`;
         if (this.options.write_file) {
-            await this._writeFile(message, Levels['warning'], data);
+            await this._writeFile({ message, level: Levels['warning'], data });
         }
         if (this.options.show_terminal) {
             if (this.test_logs)
@@ -273,7 +273,7 @@ class SmartLogger {
     async setDebug(message, data = {}) {
         let _logMessage = `${this._getMsgDate()} - [${LogForegroundColor['magenta']}${Levels['debug']}${LogType['reset']}] - ${message} | [data]: ${JSON.stringify(data)}`;
         if (this.options.write_file) {
-            await this._writeFile(message, Levels['debug'], data);
+            await this._writeFile({ message, level: Levels['debug'], data });
         }
         if (this.options.show_terminal) {
             if (this.test_logs)
@@ -285,7 +285,7 @@ class SmartLogger {
     async setAlert(message, data = {}) {
         let _logMessage = `${this._getMsgDate()} - [${LogForegroundColor['yellow']}${Levels['alert']}${LogType['reset']}] - ${message} | [data]: ${JSON.stringify(data)}`;
         if (this.options.write_file) {
-            await this._writeFile(message, Levels['alert'], data);
+            await this._writeFile({ message, level: Levels['alert'], data });
         }
         if (this.options.show_terminal) {
             if (this.test_logs)
@@ -297,7 +297,7 @@ class SmartLogger {
     async setSuccess(message, data = {}) {
         let _logMessage = `${this._getMsgDate()} - [${LogForegroundColor['green']}${Levels['success']}${LogType['reset']}] - ${message} | [data]: ${JSON.stringify(data)}`;
         if (this.options.write_file) {
-            await this._writeFile(message, Levels['success'], data);
+            await this._writeFile({ message, level: Levels['success'], data });
         }
         if (this.options.show_terminal) {
             if (this.test_logs)
@@ -309,7 +309,7 @@ class SmartLogger {
     async setCritical(message, data = {}) {
         let _logMessage = `${this._getMsgDate()} - [${LogForegroundColor['blue']}${Levels['critical']}${LogType['reset']}] - ${message} | [data]: ${JSON.stringify(data)}`;
         if (this.options.write_file) {
-            await this._writeFile(message, Levels['critical'], data);
+            await this._writeFile({ message, level: Levels['critical'], data });
         }
         if (this.options.show_terminal) {
             if (this.test_logs)
@@ -321,7 +321,7 @@ class SmartLogger {
     async setTrace(message = '', data = {}) {
         let _logMessage = `${this._getMsgDate()} - [${LogForegroundColor['magenta']}${Levels['trace']}${LogType['reset']}] - ${message} | [data]: ${JSON.stringify(data)}`;
         if (this.options.write_file) {
-            await this._writeFile(message, Levels['trace'], data);
+            await this._writeFile({ message, level: Levels['trace'], data });
         }
         if (this.options.show_terminal) {
             if (this.test_logs)

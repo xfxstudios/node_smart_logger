@@ -16,7 +16,9 @@ export const prevOptionsStubs = {
     info_level: "info",
     debug_level: "debug",
     general_level: "general",
-    show_terminal: true
+    show_terminal: true,
+    test_logs: true,
+    write_file: true,
 
 };
 
@@ -38,6 +40,8 @@ export const customOptionsStubs = {
     info_level: "info",
     debug_level: "debug",
     general_level: "general",
-    show_terminal: true
+    show_terminal: true,
+    test_logs: true,
+    write_file: true,
 
 };

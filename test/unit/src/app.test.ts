@@ -40,43 +40,85 @@ describe('Smart Logger Service', () => {
         });
     });
     
-    describe("Log data into file", () => {
+    describe("Log empty data into file", () => {
         it('should info message log', async () => {
-            const logMsg = await app.setInfo('test info message',{})
+            const logMsg = await app.setInfo('test info message')
             expect(logMsg).toBeTruthy();
         });
         
         it('should error message log', async () => {
-            const errorMsg = await app.setError('test error message',{})
+            const errorMsg = await app.setError('test error message')
             expect(errorMsg).toBeTruthy();
         });
         
         it('should warning message log', async () => {
-            const warningMsg = await app.setWarning('test warning message',{})
+            const warningMsg = await app.setWarning('test warning message')
             expect(warningMsg).toBeTruthy();
         });
         
         it('should debug message log', async () => {
-            const debugMsg = await app.setDebug('test debug message',{})
+            const debugMsg = await app.setDebug('test debug message')
             expect(debugMsg).toBeTruthy();
         });
         
         it('should alert message log', async () => {
-            const alertMsg = await app.setAlert('test alert message',{})
+            const alertMsg = await app.setAlert('test alert message')
             expect(alertMsg).toBeTruthy();
         });
         
         it('should critical message log', async () => {
-            const criticalMsg = await app.setCritical('test critical message',{})
+            const criticalMsg = await app.setCritical('test critical message')
             expect(criticalMsg).toBeTruthy();
         });
         
         it('should success message log', async () => {
-            const successMsg = await app.setSuccess('test success message',{});
+            const successMsg = await app.setSuccess('test success message');
             expect(successMsg).toBeTruthy();
         });
         
         it('should info message log with data', async () => {
+            const criticalMsg = await app.setCritical('test critical message');
+            expect(criticalMsg).toBeTruthy();
+        });
+    });
+
+    describe("Log data into file", () => {
+        it('should info message log', async () => {
+            const logMsg = await app.setInfo('test info message',{error:false, message:'some message'});
+            expect(logMsg).toBeTruthy();
+        });
+        
+        it('should error message log', async () => {
+            const errorMsg = await app.setError('test error message',{error:false, message:'some message'})
+            expect(errorMsg).toBeTruthy();
+        });
+        
+        it('should warning message log', async () => {
+            const warningMsg = await app.setWarning('test warning message',{error:false, message:'some message'})
+            expect(warningMsg).toBeTruthy();
+        });
+        
+        it('should debug message log', async () => {
+            const debugMsg = await app.setDebug('test debug message',{error:false, message:'some message'})
+            expect(debugMsg).toBeTruthy();
+        });
+        
+        it('should alert message log', async () => {
+            const alertMsg = await app.setAlert('test alert message',{error:false, message:'some message'})
+            expect(alertMsg).toBeTruthy();
+        });
+        
+        it('should critical message log', async () => {
+            const criticalMsg = await app.setCritical('test critical message',{error:false, message:'some message'})
+            expect(criticalMsg).toBeTruthy();
+        });
+        
+        it('should success message log', async () => {
+            const successMsg = await app.setSuccess('test success message',{error:false, message:'some message'});
+            expect(successMsg).toBeTruthy();
+        });
+        
+        it('should info message log', async () => {
             const criticalMsg = await app.setCritical('test critical message',{error: false, message:'some message'});
             expect(criticalMsg).toBeTruthy();
         });

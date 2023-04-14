@@ -48,7 +48,11 @@ declare class SmartLogger {
     _getMsgDate(): any;
     _createFile(): Promise<boolean>;
     getSpaces(value: any): any;
-    _writeFile(message: any, level: any, data?: {}): Promise<void>;
+    _writeFile({ message, level, data }: {
+        message: any;
+        level: string;
+        data?: any;
+    }): Promise<void>;
     terminalLog(message: String, data?: {}): Promise<boolean>;
     terminalInfo(message: String, data?: {}): Promise<boolean>;
     terminalError(message: String, data?: {}): Promise<boolean>;
