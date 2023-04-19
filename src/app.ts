@@ -150,17 +150,14 @@ class SmartLogger {
             show_terminal: this.show_terminal,
             write_file: this.write_file,
             test_logs: this.test_logs,
-
         };
 
         if(Object.keys(options).length > 0){
             Object.keys(options).forEach(key => {
                 _prevOptions[key] = options[key];
             });
-            _prevOptions['test_logs'] = process.env.TEST_LOGS??true
             return _prevOptions;
         }else{
-            _prevOptions['test_logs'] = process.env.TEST_LOGS??true
             return _prevOptions
         }
     }//
