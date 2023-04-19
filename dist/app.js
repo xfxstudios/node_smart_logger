@@ -163,71 +163,61 @@ class SmartLogger {
     ;
     async terminalLog(message, data = {}) {
         let _logMessage = `${this._getMsgDate()} - ${message} | [data]: ${JSON.stringify(data)}`;
-        if (this.test_logs)
-            console.log(`${_logMessage}\n`);
+        console.log(`${_logMessage}\n`);
         return true;
     }
     ;
     async terminalInfo(message, data = {}) {
         let _logMessage = `${this._getMsgDate()} - [${LogForegroundColor['cyan']}${Levels['info']}${LogType['reset']}] - ${message} | [data]: ${JSON.stringify(data)}`;
-        if (this.test_logs)
-            console.log(`${_logMessage}\n`);
+        console.log(`${_logMessage}\n`);
         return true;
     }
     ;
     async terminalError(message, data = {}) {
         let _logMessage = `${this._getMsgDate()} - [${LogForegroundColor['red']}${Levels['error']}${LogType['reset']}] - ${message} | [data]: ${JSON.stringify(data)}`;
-        if (this.test_logs)
-            console.log(`${_logMessage}\n`);
+        console.log(`${_logMessage}\n`);
         return true;
     }
     ;
     async terminalWarning(message, data = {}) {
         let _logMessage = `${this._getMsgDate()} - [${LogForegroundColor['orange']}${Levels['warning']}${LogType['reset']}] - ${message} | [data]: ${JSON.stringify(data)}`;
-        if (this.test_logs)
-            console.log(`${_logMessage}\n`);
+        console.log(`${_logMessage}\n`);
         return true;
     }
     ;
     async terminalSuccess(message, data = {}) {
         let _logMessage = `${this._getMsgDate()} - [${LogForegroundColor['green']}${Levels['success']}${LogType['reset']}] - ${message} | [data]: ${JSON.stringify(data)}`;
-        if (this.test_logs)
-            console.log(`${_logMessage}\n`);
+        console.log(`${_logMessage}\n`);
         return true;
     }
     ;
     async terminalCritical(message, data = {}) {
         let _logMessage = `${this._getMsgDate()} - [${LogForegroundColor['blue']}${Levels['critical']}${LogType['reset']}] - ${message} | [data]: ${JSON.stringify(data)}`;
-        if (this.test_logs)
-            console.log(`${_logMessage}\n`);
+        console.log(`${_logMessage}\n`);
         return true;
     }
     ;
     async terminalDebug(message, data = {}) {
         let _logMessage = `${this._getMsgDate()} - [${LogForegroundColor['yellow']}${Levels['debug']}${LogType['reset']}] - ${message} | [data]: ${JSON.stringify(data)}`;
-        if (this.test_logs)
-            console.log(`${_logMessage}\n`);
+        console.log(`${_logMessage}\n`);
         return true;
     }
     ;
     async terminalAlert(message, data = {}) {
         let _logMessage = `${this._getMsgDate()} - [${LogForegroundColor['yellow']}${Levels['alert']}${LogType['reset']}] - ${message} | [data]: ${JSON.stringify(data)}`;
-        if (this.test_logs)
-            console.log(`${_logMessage}\n`);
+        console.log(`${_logMessage}\n`);
         return true;
     }
     ;
     async terminalTrace(message = '', data = {}) {
         let _logMessage = `${this._getMsgDate()} - [${LogForegroundColor['magenta']}${Levels['trace']}${LogType['reset']}] - ${message} | [data]: ${JSON.stringify(data)}`;
-        if (this.test_logs)
-            console.trace(`${_logMessage}\n`);
+        console.trace(`${_logMessage}\n`);
         return true;
     }
     ;
     async setLog(message, data = {}) {
         let _logMessage = `${this._getMsgDate()} - ${message} | [data]: ${JSON.stringify(data)}`;
-        if (this.test_logs)
-            console.log(`${_logMessage}\n`);
+        console.log(`${_logMessage}\n`);
         return true;
     }
     ;
@@ -236,10 +226,7 @@ class SmartLogger {
         if (this.options.write_file) {
             await this._writeFile({ message, level: Levels['info'], data });
         }
-        if (this.options.show_terminal) {
-            if (this.test_logs)
-                console.log(`${_logMessage}\n`);
-        }
+        console.log(`${_logMessage}\n`);
         return true;
     }
     ;
@@ -248,10 +235,7 @@ class SmartLogger {
         if (this.options.write_file) {
             await this._writeFile({ message, level: Levels['error'], data });
         }
-        if (this.options.show_terminal) {
-            if (this.test_logs)
-                console.log(`${_logMessage}\n`);
-        }
+        console.log(`${_logMessage}\n`);
         return true;
     }
     ;
@@ -260,10 +244,7 @@ class SmartLogger {
         if (this.options.write_file) {
             await this._writeFile({ message, level: Levels['warning'], data });
         }
-        if (this.options.show_terminal) {
-            if (this.test_logs)
-                console.log(`${_logMessage}\n`);
-        }
+        console.log(`${_logMessage}\n`);
         return true;
     }
     ;
@@ -272,10 +253,7 @@ class SmartLogger {
         if (this.options.write_file) {
             await this._writeFile({ message, level: Levels['debug'], data });
         }
-        if (this.options.show_terminal) {
-            if (this.test_logs)
-                console.log(`${_logMessage}\n`);
-        }
+        console.log(`${_logMessage}\n`);
         return true;
     }
     ;
@@ -284,10 +262,7 @@ class SmartLogger {
         if (this.options.write_file) {
             await this._writeFile({ message, level: Levels['alert'], data });
         }
-        if (this.options.show_terminal) {
-            if (this.test_logs)
-                console.log(`${_logMessage}\n`);
-        }
+        console.log(`${_logMessage}\n`);
         return true;
     }
     ;
@@ -296,10 +271,7 @@ class SmartLogger {
         if (this.options.write_file) {
             await this._writeFile({ message, level: Levels['success'], data });
         }
-        if (this.options.show_terminal) {
-            if (this.test_logs)
-                console.log(`${_logMessage}\n`);
-        }
+        console.log(`${_logMessage}\n`);
         return true;
     }
     ;
@@ -308,10 +280,7 @@ class SmartLogger {
         if (this.options.write_file) {
             await this._writeFile({ message, level: Levels['critical'], data });
         }
-        if (this.options.show_terminal) {
-            if (this.test_logs)
-                console.log(`${_logMessage}\n`);
-        }
+        console.log(`${_logMessage}\n`);
         return true;
     }
     ;
@@ -320,71 +289,56 @@ class SmartLogger {
         if (this.options.write_file) {
             await this._writeFile({ message, level: Levels['trace'], data });
         }
-        if (this.options.show_terminal) {
-            if (this.test_logs)
-                console.trace(`${_logMessage}\n`);
-        }
+        console.trace(`${_logMessage}\n`);
         return true;
     }
     ;
     async setSteep(data) {
         const { message, number } = data;
-        if (this.test_logs)
-            console.log(`${LogForegroundColor.yellow}[ steep ${(number) ? number + ' ]' : ']'}\x1b[0m ${message}\n`);
+        console.log(`${LogForegroundColor.yellow}[ steep ${(number) ? number + ' ]' : ']'}\x1b[0m ${message}\n`);
         return true;
     }
     async setSteepStatus(data) {
         const { message, number } = data;
-        if (this.test_logs)
-            console.log(`${LogForegroundColor.yellow}[ steep ${(number) ? number + ' ]' : ']'}\x1b[0m ${message}\n`);
+        console.log(`${LogForegroundColor.yellow}[ steep ${(number) ? number + ' ]' : ']'}\x1b[0m ${message}\n`);
         return true;
     }
     async setCantity(data) {
         const { message, total } = data;
-        if (this.test_logs)
-            console.log(`${LogForegroundColor.green}${message}${LogType.reset} ${LogForegroundColor.yellow}[${total}]${LogType.reset}\n`);
+        console.log(`${LogForegroundColor.green}${message}${LogType.reset} ${LogForegroundColor.yellow}[${total}]${LogType.reset}\n`);
         return true;
     }
     async setInterval(data) {
         const { message, actual, total } = data;
-        if (this.test_logs)
-            console.log(`${LogForegroundColor.green}${message}${LogType.reset} ${LogForegroundColor.yellow}[${actual}]${LogType.reset} of ${LogForegroundColor.yellow}[${total}]${LogType.reset}`);
+        console.log(`${LogForegroundColor.green}${message}${LogType.reset} ${LogForegroundColor.yellow}[${actual}]${LogType.reset} of ${LogForegroundColor.yellow}[${total}]${LogType.reset}`);
         return true;
     }
     async setTitle(data) {
         const { message, level } = data;
         switch (level) {
             case 'info':
-                if (this.test_logs)
-                    console.log(`${LogBackgroundColor.cyan}${LogForegroundColor.white}${message}${LogType.reset}`);
+                console.log(`${LogBackgroundColor.cyan}${LogForegroundColor.white}${message}${LogType.reset}`);
                 break;
             case 'error':
-                if (this.test_logs)
-                    console.log(`${LogBackgroundColor.red}${LogForegroundColor.white}${message}${LogType.reset}`);
+                console.log(`${LogBackgroundColor.red}${LogForegroundColor.white}${message}${LogType.reset}`);
                 break;
             case 'warning':
-                if (this.test_logs)
-                    console.log(`${LogBackgroundColor.orange}${LogForegroundColor.white}${message}${LogType.reset}`);
+                console.log(`${LogBackgroundColor.orange}${LogForegroundColor.white}${message}${LogType.reset}`);
                 break;
             case 'debug':
-                if (this.test_logs)
-                    console.log(`${LogBackgroundColor.magenta}${LogForegroundColor.white}${message}${LogType.reset}`);
+                console.log(`${LogBackgroundColor.magenta}${LogForegroundColor.white}${message}${LogType.reset}`);
                 break;
             case 'alert':
-                if (this.test_logs)
-                    console.log(`${LogBackgroundColor.yellow}${LogForegroundColor.black}${message}${LogType.reset}`);
+                console.log(`${LogBackgroundColor.yellow}${LogForegroundColor.black}${message}${LogType.reset}`);
                 break;
             case 'critical':
-                if (this.test_logs)
-                    console.log(`${LogBackgroundColor.blue}${LogForegroundColor.white}${message}${LogType.reset}`);
+                console.log(`${LogBackgroundColor.blue}${LogForegroundColor.white}${message}${LogType.reset}`);
                 break;
             case 'success':
-                if (this.test_logs)
-                    console.log(`${LogBackgroundColor.green}${LogForegroundColor.white}${message}${LogType.reset}`);
+                console.log(`${LogBackgroundColor.green}${LogForegroundColor.white}${message}${LogType.reset}`);
                 break;
             default:
-                if (this.test_logs)
-                    console.log(`${LogBackgroundColor.white}${LogForegroundColor.black}${message}${LogType.reset}`);
+                console.log(`${LogBackgroundColor.white}${LogForegroundColor.black}${message}${LogType.reset}`);
         }
         return true;
     }
