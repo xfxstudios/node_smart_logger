@@ -169,7 +169,7 @@ class SmartLogger {
 
     _getMsgDate(){
         let _msgDate:any = new Date();
-        _msgDate = `[${_msgDate.getFullYear()}-${_msgDate.getMonth()}-${_msgDate.getDate()} ${_msgDate.getHours()}:${_msgDate.getMinutes()}:${_msgDate.getSeconds()}]`;
+        _msgDate = `${_msgDate.getFullYear()}-${_msgDate.getMonth()}-${_msgDate.getDate()} ${_msgDate.getHours()}:${_msgDate.getMinutes()}:${_msgDate.getSeconds()}`;
         return _msgDate;
     }
 
@@ -232,7 +232,7 @@ class SmartLogger {
 
     async terminalLog(message:String, data={}){
 
-        let _logMessage = `${this._getMsgDate()} - ${message} | [data]: ${JSON.stringify(data)}`;
+        let _logMessage = `${this._getMsgDate()} | ${message} | ${JSON.stringify(data)}`;
         console.log(`${_logMessage}\n`);
 
         return true;
@@ -240,7 +240,7 @@ class SmartLogger {
 
     async terminalInfo(message:String, data={}){
 
-        let _logMessage = `${this._getMsgDate()} - [${LogForegroundColor['cyan']}${Levels['info']}${LogType['reset']}] - ${message} | [data]: ${JSON.stringify(data)}`;
+        let _logMessage = `${this._getMsgDate()} | ${LogForegroundColor['cyan']}${Levels['info']}${LogType['reset']} | ${message} | ${JSON.stringify(data)}`;
 
         console.log(`${_logMessage}\n`);
 
@@ -250,7 +250,7 @@ class SmartLogger {
 
     async terminalError(message:String, data={}){
 
-        let _logMessage = `${this._getMsgDate()} - [${LogForegroundColor['red']}${Levels['error']}${LogType['reset']}] - ${message} | [data]: ${JSON.stringify(data)}`;
+        let _logMessage = `${this._getMsgDate()} | ${LogForegroundColor['red']}${Levels['error']}${LogType['reset']} | ${message} | ${JSON.stringify(data)}`;
 
         console.log(`${_logMessage}\n`);
 
@@ -259,7 +259,7 @@ class SmartLogger {
 
     async terminalWarning(message:String, data={}){
 
-        let _logMessage = `${this._getMsgDate()} - [${LogForegroundColor['orange']}${Levels['warning']}${LogType['reset']}] - ${message} | [data]: ${JSON.stringify(data)}`;
+        let _logMessage = `${this._getMsgDate()} | ${LogForegroundColor['orange']}${Levels['warning']}${LogType['reset']} | ${message} | ${JSON.stringify(data)}`;
 
         console.log(`${_logMessage}\n`);
 
@@ -269,7 +269,7 @@ class SmartLogger {
 
     async terminalSuccess(message:String, data={}){
 
-        let _logMessage = `${this._getMsgDate()} - [${LogForegroundColor['green']}${Levels['success']}${LogType['reset']}] - ${message} | [data]: ${JSON.stringify(data)}`;
+        let _logMessage = `${this._getMsgDate()} | ${LogForegroundColor['green']}${Levels['success']}${LogType['reset']} | ${message} | ${JSON.stringify(data)}`;
 
         console.log(`${_logMessage}\n`);
 
@@ -278,7 +278,7 @@ class SmartLogger {
 
     async terminalCritical(message:String, data={}){
 
-        let _logMessage = `${this._getMsgDate()} - [${LogForegroundColor['blue']}${Levels['critical']}${LogType['reset']}] - ${message} | [data]: ${JSON.stringify(data)}`;
+        let _logMessage = `${this._getMsgDate()} | ${LogForegroundColor['blue']}${Levels['critical']}${LogType['reset']} | ${message} | ${JSON.stringify(data)}`;
 
         console.log(`${_logMessage}\n`);
 
@@ -288,7 +288,7 @@ class SmartLogger {
 
     async terminalDebug(message:String, data={}){
 
-        let _logMessage = `${this._getMsgDate()} - [${LogForegroundColor['yellow']}${Levels['debug']}${LogType['reset']}] - ${message} | [data]: ${JSON.stringify(data)}`;
+        let _logMessage = `${this._getMsgDate()} | ${LogForegroundColor['yellow']}${Levels['debug']}${LogType['reset']} | ${message} | ${JSON.stringify(data)}`;
 
         console.log(`${_logMessage}\n`);
 
@@ -298,7 +298,7 @@ class SmartLogger {
 
     async terminalAlert(message:String, data={}){
 
-        let _logMessage = `${this._getMsgDate()} - [${LogForegroundColor['yellow']}${Levels['alert']}${LogType['reset']}] - ${message} | [data]: ${JSON.stringify(data)}`;
+        let _logMessage = `${this._getMsgDate()} | ${LogForegroundColor['yellow']}${Levels['alert']}${LogType['reset']} | ${message} | ${JSON.stringify(data)}`;
 
         console.log(`${_logMessage}\n`);
 
@@ -307,7 +307,7 @@ class SmartLogger {
 
     async terminalTrace(message:String='', data={}){
 
-        let _logMessage = `${this._getMsgDate()} - [${LogForegroundColor['magenta']}${Levels['trace']}${LogType['reset']}] - ${message} | [data]: ${JSON.stringify(data)}`;
+        let _logMessage = `${this._getMsgDate()} | ${LogForegroundColor['magenta']}${Levels['trace']}${LogType['reset']} | ${message} | ${JSON.stringify(data)}`;
 
         console.trace(`${_logMessage}\n`);
 
@@ -316,7 +316,7 @@ class SmartLogger {
 
     async setLog(message:String, data={}){
 
-        let _logMessage = `${this._getMsgDate()} - ${message} | [data]: ${JSON.stringify(data)}`;
+        let _logMessage = `${this._getMsgDate()} | ${message} | ${JSON.stringify(data)}`;
 
         console.log(`${_logMessage}\n`);
 
@@ -325,7 +325,7 @@ class SmartLogger {
 
     async setInfo(message:String, data={}){
 
-        let _logMessage = `${this._getMsgDate()} - [${LogForegroundColor['cyan']}${Levels['info']}${LogType['reset']}] - ${message} | [data]: ${JSON.stringify(data)}`;
+        let _logMessage = `${this._getMsgDate()} | ${LogForegroundColor['cyan']}${Levels['info']}${LogType['reset']} | ${message} | ${JSON.stringify(data)}`;
 
         if(this.options.write_file){
             await this._writeFile({message, level: Levels['info'], data});
@@ -338,7 +338,7 @@ class SmartLogger {
 
     async setError(message:String, data={}){
 
-        let _logMessage = `${this._getMsgDate()} - [${LogForegroundColor['red']}${Levels['error']}${LogType['reset']}] - ${message} | [data]: ${JSON.stringify(data)}`;
+        let _logMessage = `${this._getMsgDate()} | ${LogForegroundColor['red']}${Levels['error']}${LogType['reset']} | ${message} | ${JSON.stringify(data)}`;
 
         if(this.options.write_file){
             await this._writeFile({message, level:Levels['error'], data});
@@ -351,7 +351,7 @@ class SmartLogger {
 
     async setWarning(message:String, data={}){
 
-        let _logMessage = `${this._getMsgDate()} - [${LogForegroundColor['orange']}${Levels['warning']}${LogType['reset']}] - ${message} | [data]: ${JSON.stringify(data)}`;
+        let _logMessage = `${this._getMsgDate()} | ${LogForegroundColor['orange']}${Levels['warning']}${LogType['reset']} | ${message} | ${JSON.stringify(data)}`;
 
         if(this.options.write_file){
             await this._writeFile({message, level:Levels['warning'], data});
@@ -365,7 +365,7 @@ class SmartLogger {
 
     async setDebug(message:String, data={}){
 
-        let _logMessage = `${this._getMsgDate()} - [${LogForegroundColor['magenta']}${Levels['debug']}${LogType['reset']}] - ${message} | [data]: ${JSON.stringify(data)}`;
+        let _logMessage = `${this._getMsgDate()} | ${LogForegroundColor['magenta']}${Levels['debug']}${LogType['reset']} | ${message} | ${JSON.stringify(data)}`;
 
         if(this.options.write_file){
             await this._writeFile({message, level:Levels['debug'], data});
@@ -379,7 +379,7 @@ class SmartLogger {
 
     async setAlert(message:String, data={}){
 
-        let _logMessage = `${this._getMsgDate()} - [${LogForegroundColor['yellow']}${Levels['alert']}${LogType['reset']}] - ${message} | [data]: ${JSON.stringify(data)}`;
+        let _logMessage = `${this._getMsgDate()} | ${LogForegroundColor['yellow']}${Levels['alert']}${LogType['reset']} | ${message} | ${JSON.stringify(data)}`;
 
         if(this.options.write_file){
             await this._writeFile({message, level:Levels['alert'], data});
@@ -392,7 +392,7 @@ class SmartLogger {
 
     async setSuccess(message:String, data={}){
 
-        let _logMessage = `${this._getMsgDate()} - [${LogForegroundColor['green']}${Levels['success']}${LogType['reset']}] - ${message} | [data]: ${JSON.stringify(data)}`;
+        let _logMessage = `${this._getMsgDate()} | ${LogForegroundColor['green']}${Levels['success']}${LogType['reset']} | ${message} | ${JSON.stringify(data)}`;
 
         if(this.options.write_file){
             await this._writeFile({message, level:Levels['success'], data});
@@ -405,7 +405,7 @@ class SmartLogger {
 
     async setCritical(message:String, data={}){
 
-        let _logMessage = `${this._getMsgDate()} - [${LogForegroundColor['blue']}${Levels['critical']}${LogType['reset']}] - ${message} | [data]: ${JSON.stringify(data)}`;
+        let _logMessage = `${this._getMsgDate()} | ${LogForegroundColor['blue']}${Levels['critical']}${LogType['reset']} | ${message} | ${JSON.stringify(data)}`;
 
         if(this.options.write_file){
             await this._writeFile({message, level:Levels['critical'], data});
@@ -419,7 +419,7 @@ class SmartLogger {
 
     async setTrace(message:String='', data={}){
 
-        let _logMessage = `${this._getMsgDate()} - [${LogForegroundColor['magenta']}${Levels['trace']}${LogType['reset']}] - ${message} | [data]: ${JSON.stringify(data)}`;
+        let _logMessage = `${this._getMsgDate()} | ${LogForegroundColor['magenta']}${Levels['trace']}${LogType['reset']} | ${message} | ${JSON.stringify(data)}`;
 
         if(this.options.write_file){
             await this._writeFile({message, level:Levels['trace'], data});

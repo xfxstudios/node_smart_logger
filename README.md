@@ -4,7 +4,7 @@
 <br/>
 
 ## Install
-```cmd
+```bash
 npm i node_smart_logger
 ```
 <br/>
@@ -16,6 +16,7 @@ import { SmartLogger } from 'node_smart_logger';
 const _logger = new SmartLogger();
 
 ```
+
 ### By default logger will create a logs folder in the root of your project, but you can also indicate the path and name of the logs folder when you initialize it:
 
 ```javascript
@@ -35,7 +36,7 @@ Opciones de Configuración:
 <br/>
 
 ### Disable logs for terminal during test, set environment variable
-```
+```bash
 SET TEST_LOGS=false
 ```
 
@@ -47,47 +48,47 @@ SET TEST_LOGS=false
 // normal log
 _logger.setLog("message");
 _logger.terminalLog("message");// only terminal output
-//[2022-5-28 9:21:6] - message | [data]: {}
+//2022-5-28 9:21:6 | message | {}
 
 // Info log
 _logger.setInfo("message");
 _logger.terminalInfo("message");// only terminal output
-//[2022-5-28 9:21:6] - [INFO] - message | [data]: {}
+//2022-5-28 9:21:6 | INFO | message | {}
 
 // Error log
 _logger.setError("message");
 _logger.terminalError("message");// only terminal output
-//[2022-5-28 9:21:6] - [ERROR] - message | [data]: {}
+//2022-5-28 9:21:6 | ERROR | message | {}
 
 // Alert log
 _logger.setAlert("message");
 _logger.terminalAlert("message");// only terminal output
-//[2022-5-28 9:21:6] - [ALERT] - message | [data]: {}
+//2022-5-28 9:21:6 | ALERT | message | {}
 
 // Debug log
 _logger.setDebug("message");
 _logger.terminalDebug("message");// only terminal output
-//[2022-5-28 9:21:6] - [DEBUG] - message | [data]: {}
+//2022-5-28 9:21:6 | DEBUG | message | {}
 
 // Critical log
 _logger.setCritical("message");
 _logger.terminalCritical("message");// only terminal output
-//[2022-5-28 9:21:6] - [CRITICAL] - message | [data]: {}
+//2022-5-28 9:21:6 | CRITICAL | message | {}
 
 // Warning log
 _logger.setWarning("message");
 _logger.terminalWarning("message");// only terminal output
-//[2022-5-28 9:21:6] - [WARNING] - message | [data]: {}
+//2022-5-28 9:21:6 | WARNING | message | {}
 
 // Success log
 _logger.setSuccess("message");
 _logger.terminalSuccess("message");// only terminal output
-//[2022-5-28 9:21:6] - [SUCCESS] - message | [data]: {}
+//2022-5-28 9:21:6 | SUCCESS | message | {}
 
 // Trace log [return a trace of route]
 _logger.setTrace("message");
 _logger.terminalTrace("message");// only terminal output
-//[2022-5-28 9:21:6] - [TRACE] - message | [data]: {}
+//2022-5-28 9:21:6 | TRACE | message | {}
 /*
     myOtherFUnction
     myFunction
@@ -106,7 +107,7 @@ const dataToLog = {
 }
 
 _logger.setCritical("log message", dataToLog);
-//[2022-5-28 9:21:6] - [critical]  - log message | [data]: {"error":false,"message":"some message"}
+//2022-5-28 9:21:6 | critical  | log message | {"error":false,"message":"some message"}
 
 ```
 
