@@ -222,8 +222,8 @@ class SmartLogger {
         await this._createFile();
 
         let _nDate = this._getDate();
-        let _data = (Object.keys(data).length > 0) ?  `| [data]: ${JSON.stringify(data)}`:``
-        let _logMessage = `${this._getMsgDate()} - ${this.getSpaces(`[${level}]`)}- ${message} ${_data}`;
+        let _data = (Object.keys(data).length > 0) ?  `| ${JSON.stringify(data)}`:``
+        let _logMessage = `${this._getMsgDate()} | ${this.getSpaces(`${level}`)} | ${message} ${_data}`;
 
         fs.appendFile(path.resolve(`${this.options.logs_folder_path}/${this.options.logs_folder_name}/${this.options.logs_general_file_name.replace(':date',_nDate)}`), `${_logMessage}\n`, (err:any) => {
             if (err) throw err;
